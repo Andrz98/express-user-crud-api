@@ -12,6 +12,7 @@ app.use((req, res, next) => {
 
 app.use(express.json()); //permite recibir y procesar datos en formato JSON desde el cliente
 
+// Escuchando en el puerto 3000, con esto iniciamos el servidor
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on http://localhost: ${port}`);
 });
