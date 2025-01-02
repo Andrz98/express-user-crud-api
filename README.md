@@ -1,29 +1,33 @@
-# express-user-crud-api
+# User Management API
 
-## Description
+## **Description**
 
-A RESTful API built with **Express.js** to manage users. This application provides full **CRUD** (Create, Read, Update, Delete) functionality for user management. It implements middlewares for validation, error handling, and route organization based on best practices.
-
----
-
-## Features
-
-- Complete user management:
-  - Create a user.
-  - Read users (all or specific).
-  - Update users.
-  - Delete users.
-- Reusable middlewares for:
-  - Data validation.
-  - User ID verification.
-- Robust error handling with consistent responses.
-- Supports JSON as input/output format.
-- Route organization from **most specific** to **most generic**.
-- Clean server shutdown handling.
+A modular RESTful API built with **Express.js** to manage users. This application provides full **CRUD** (Create, Read, Update, Delete) functionality, following best practices for project organization, reusability, and scalability.
 
 ---
 
-## Endpoints
+## **Features**
+
+- **Modular Structure**: Separation of concerns for middlewares, controllers, and routes.
+- **CRUD Functionality**:
+  - Create a new user.
+  - Retrieve all users or a specific user by ID.
+  - Update user data by ID.
+  - Delete a user by ID.
+- **Reusable Middlewares**:
+  - Validate user IDs.
+  - Validate user data for creation and updates.
+- **Error Handling**:
+  - Global error-handling middleware.
+  - 404 handling for undefined routes.
+- **Graceful Shutdown**:
+  - Cleanly handles `SIGINT` and `SIGTERM` signals.
+- **Mock Database**:
+  - Simulated user data with a `userMock.js` file for testing.
+
+---
+
+## **Endpoints**
 
 | Method | Route        | Description                              | Response Codes |
 | ------ | ------------ | ---------------------------------------- | -------------- |
@@ -36,17 +40,26 @@ A RESTful API built with **Express.js** to manage users. This application provid
 
 ---
 
-## Requirements
+## **Project Structure**
 
-1. **Node.js** (version >= 16)
-2. **npm** (version >= 7)
+```plaintext
+.
+├── middlewares/         # Contains all middleware functions
+│   ├── checkUserId.js   # Middleware for validating user ID
+│   └── validateUser.js  # Middleware for validating user data
+├── controllers/         # Contains the logic for each route
+│   └── userController.js # Controllers for user-related routes
+├── routes/              # Contains route definitions
+│   └── userRoutes.js    # Routes related to users
+├── userMock.js          # Simulated database for testing
+├── app.js               # Main entry point for the application
+├── package.json         # Project dependencies and configuration
+└── README.md            # Project documentation
 
 ---
 
-## Installation
+## **Licence**
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
-   ```
+```
+
+This project is licensed under the MIT License. See the LICENSE file for details.
