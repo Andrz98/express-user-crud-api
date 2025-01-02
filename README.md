@@ -8,22 +8,19 @@ A modular RESTful API built with **Express.js** to manage users. This applicatio
 
 ## **Features**
 
-- **Modular Structure**: Separation of concerns for middlewares, controllers, and routes.
 - **CRUD Functionality**:
-  - Create a new user.
+  - Create a user.
   - Retrieve all users or a specific user by ID.
   - Update user data by ID.
   - Delete a user by ID.
-- **Reusable Middlewares**:
-  - Validate user IDs.
-  - Validate user data for creation and updates.
-- **Error Handling**:
-  - Global error-handling middleware.
-  - 404 handling for undefined routes.
-- **Graceful Shutdown**:
-  - Cleanly handles `SIGINT` and `SIGTERM` signals.
+- **Modular Structure**:
+  - Organized into separate folders for middlewares, controllers, routes, and services.
 - **Mock Database**:
-  - Simulated user data with a `userMock.js` file for testing.
+  - Uses a `userMock.js` file for simulating user data.
+- **Error Handling**:
+  - Global error handler and 404 response for undefined routes.
+- **Graceful Shutdown**:
+  - Handles `SIGINT` and `SIGTERM` signals for a clean server shutdown.
 
 ---
 
@@ -44,17 +41,20 @@ A modular RESTful API built with **Express.js** to manage users. This applicatio
 
 ```plaintext
 .
-├── middlewares/         # Contains all middleware functions
-│   ├── checkUserId.js   # Middleware for validating user ID
-│   └── validateUser.js  # Middleware for validating user data
-├── controllers/         # Contains the logic for each route
-│   └── userController.js # Controllers for user-related routes
-├── routes/              # Contains route definitions
-│   └── userRoutes.js    # Routes related to users
-├── userMock.js          # Simulated database for testing
-├── app.js               # Main entry point for the application
-├── package.json         # Project dependencies and configuration
-└── README.md            # Project documentation
+├── usersGestion/            # Parent folder for user-related logic
+│   ├── middlewares/         # Middlewares for user management
+│   │   ├── checkUserId.js   # Middleware for validating user ID
+│   │   └── validateUser.js  # Middleware for validating user data
+│   ├── controllers/         # Logic for user-related endpoints
+│   │   └── userController.js # Controllers for users
+│   ├── routes/              # User-related routes
+│   │   └── userRoutes.js    # Defines user endpoints
+│   └── services/            # Services for handling business logic
+│       └── userService.js   # Core service functions for users
+├── userMock.js              # Simulated database for testing
+├── app.js                   # Main application entry point
+├── package.json             # Project dependencies and configuration
+└── README.md                # Documentation for the project
 
 ---
 

@@ -1,5 +1,5 @@
 import express from 'express'; // Import Express.js
-import userRoutes from './routes/userRoutes.js'; // Import user routes
+import userRoutes from './usersGestion/routes/userRoutes.js'; // Import user routes
 
 const app = express(); // Initialize the Express application
 const port = process.env.PORT || 3000; // Set the server port (default: 3000)
