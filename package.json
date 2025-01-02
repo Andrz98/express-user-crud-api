@@ -1,13 +1,13 @@
 {
   "name": "expressintermediate",
   "version": "1.0.0",
-  "main": "serverOne.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src --ext .jsx,.js",
     "format": "prettier --write ./src",
-    "start": "nodemon serverOne.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
